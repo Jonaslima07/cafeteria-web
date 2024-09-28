@@ -3,44 +3,20 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from './templates/Layout';
 import Home from './views/Home';
 import NoPage from './views/NoPage';
-import Cardapio from './views/Cardapio';
+import ClientesYupFormik from './views/ClientesYupFormik';
 import Login from './views/Login';
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    elementError: <NoPage />,
+    errorElement: <NoPage />, // Corrigido para errorElement
     children: [
-      { path: '/', element: <Home /> },
-      { path: 'cardapio', element: <Cardapio /> },
+      { index: true, element: <Home /> }, // Usando index para a rota raiz
+      { path: 'cardapio', element: <ClientesYupFormik /> },
       { path: 'login', element: <Login /> }, 
     ]
   },
 ]);
 
-
-
-
 export default Router;
-
-
-
-
-// function App() {
-//   return (
-    
-//   );
-// }
-
-
-// <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<Layout />}>
-    //       <Route index element={<Home />} />
-    //       <Route path="cardapio" element={<Cardapio />} />
-    //       <Route path="login" element={<Login />} />
-    //       <Route path="*" element={<NoPage />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
